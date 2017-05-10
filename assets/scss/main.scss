@@ -1,0 +1,308 @@
+/* ------------------------------------- */
+/* @Import & Reset  .................... */
+/* ------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, s, samp,
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@import "../../vendor/bootstrap/scss/bootstrap.scss";
+@import "../../vendor/font-awesome/scss/font-awesome.scss";
+
+@import "_var.scss";
+//@import "_mixins.scss";
+//@import "_media.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800");
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i');
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i");
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+
+/* ------------------------------------- */
+/* Generic styles ...................... */
+/* ------------------------------------- */
+
+body {
+  font-family: $latoSans;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+}
+
+.text-white { color: #fff; }
+.text-violet { color: #453087; }
+
+.bg-violet { background-color: #453087; }
+
+.round { border-radius: 35px; }
+
+.btn { 
+  text-transform: uppercase;
+  font-size: 0.86em;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.brand {
+  position: fixed;
+  background-image: url(../images/brand.png);
+  width: 200px;
+  height: 93px;
+  top: 20px;
+  left: 60px;
+  transform: scale(1, 1);
+  z-index: 103;
+  transition: all 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+/* 
+ * Hamburger Icon */
+
+#nav-icon1 {
+  width: 40px;
+  height: 30px;
+  position: fixed;
+  z-index: 500;
+  margin: 15px auto;
+  right: 18px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-icon1:hover {
+  animation: burger .6s;
+}
+
+@keyframes burger {
+  0% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.075, 1.075);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+#nav-icon1.open{ margin: 15px auto; } 
+
+#nav-icon1 span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .35s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon1 span:nth-child(2) {
+  top: 12px;
+}
+
+#nav-icon1 span:nth-child(3) {
+  top: 24px;
+}
+
+#nav-icon1.open span:nth-child(1) {
+  top: 12px;
+  transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+  top: 12px;
+  transform: rotate(-135deg);
+}
+
+// Section images
+.section {
+  background-size: cover;
+  transition: all .8s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+/*
+.section:after{
+  content:"";
+  background: #673FB4;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 102;
+  transition: all .8s cubic-bezier(.71, .01, .32, 1.01);
+  transform: translate3d(0%, 0, 0);
+}
+
+.section.active:after { transform: translate3d(-100%, 0, 0); }*/
+
+.section-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.section-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------------- */
+/* Home ................................ */
+/* ------------------------------------- */
+#hero .section-img { background-image: url(../images/hero-bg3.jpg); }
+
+#hero .section-img:before {
+  content:"";
+  background: linear-gradient(0deg,rgba(147, 34, 200, 1), rgba(0, 0, 0, 0));
+  width: 100%;
+  height: 400px;
+  display: block;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+#hero .hero-inner {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#hero .hero-upper-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 10;
+}
+#hero .hero-upper-content .lettering {
+  text-align: center;
+  margin-top: -200px;
+}
+
+#hero .hero-upper-content .date {
+  font-size: 25px;
+  font-weight: 400;
+  color: #fff;
+}
+
+#hero .hero-lower-content {
+  /*position: relative;*/
+  position: absolute;
+  top: 80%;
+}
+
+#hero .hero-lower-content .info { color: #fff; }
+
+#hero .hero-lower-content .info:hover { text-decoration: none; }
+
+#description .section-img {
+  background-image: url(../images/description-bg.jpg);
+}
+
+#description .description-text p {
+  font-size: 21px;
+  color: #77828a;
+  line-height: 1.68;
+}
+
+.local {
+  background-color: #ccc;
+  width: 100%;
+  height: 392px;
+  border-radius: 2px;
+}
+
+/*
+ * Seção Organizadores */
+#owl-organizers .item{
+  text-align: center;
+}
+#owl-organizers .item img{
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+/*
+ * Footer Register + About Summit */
+
+.jumbotron.register {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.jumbotron.aboutTSL {
+  border-radius: 0;
+}
+
